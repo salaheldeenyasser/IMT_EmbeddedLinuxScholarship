@@ -9,7 +9,7 @@ public:
     CSwapObjects(int x, int y) : m_x(x), m_y(y) {}
 
 
-    CSwapObjects swap(CSwapObjects &other){
+    CSwapObjects& swap(CSwapObjects &other){
         int tempX = m_x;
         int tempY = m_y;
 

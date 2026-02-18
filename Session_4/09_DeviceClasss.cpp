@@ -9,8 +9,8 @@ private:
 
 public:
     CDevice(int id, const char* name) : m_DeviceID(id) {
-        m_DeviceName = new char[std::strlen(name) + 1];
-        std::strcpy(m_DeviceName, name);
+        m_DeviceName = new char[strlen(name) + 1];
+        strcpy(m_DeviceName, name);
     }
 
     ~CDevice() {

@@ -42,3 +42,6 @@ void NonHumoArray_main(){
 };
 
 
+int main(){
+    NonHumoArray_main();
+}

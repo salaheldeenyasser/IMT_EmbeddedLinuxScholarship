@@ -1,0 +1,4 @@
+Baud Rate: 0
+Parity: 
+Stop Bits: 0
+Slave Address: 0

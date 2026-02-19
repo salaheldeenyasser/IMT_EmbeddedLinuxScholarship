@@ -1,1 +1,4 @@
-baudrate=19200 parity=even stopbits=1 slaveaddress=50
+20+30
+4*55
+2/1
+99-60

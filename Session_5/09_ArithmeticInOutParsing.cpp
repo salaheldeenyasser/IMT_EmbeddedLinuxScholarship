@@ -116,8 +116,38 @@ int main(int argc,char* argv[]){
     std::ifstream inputFile(inputFilePath);
 
     std::string line;
+    int i = 0;
     while(std::getline(inputFile, line))
     {
+        i++;
+        std::stringstream ss(line);
+        int first_op = 0;
+        int second_op = 0;
+        char op;
+
+        ss >> first_op >> op >> second_op;
+
+        auto adder = [](int a, char op, int b) {
+            switch (op)
+            {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                if (b != 0) {
+                    return a / b;
+                } else {
+                    std::cerr << "Error: Division by zero!" << std::endl;
+                    return 0; 
+                }
+            default:
+                std::cerr << "Error: Unsupported operator!" << std::endl;
+                return 0; 
+            }
+        };
         outputFile << line << std::endl;
     }
 }

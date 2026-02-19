@@ -1,4 +1,1 @@
-baudrate=19200
-parity=even
-stopbits=1
-slaveaddress=50
+baudrate=19200 parity=even stopbits=1 slaveaddress=50

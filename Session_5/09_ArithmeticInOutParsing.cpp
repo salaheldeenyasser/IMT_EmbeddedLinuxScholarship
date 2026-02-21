@@ -119,7 +119,6 @@ int main(int argc,char* argv[]){
     int i = 0;
     while(std::getline(inputFile, line))
     {
-        i++;
         std::stringstream ss(line);
         int first_op = 0;
         int second_op = 0;

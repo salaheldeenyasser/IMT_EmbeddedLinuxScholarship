@@ -1,4 +1,4 @@
-// main.o in=input.txt  out=output.txt
+// ./main.o in=input.txt  out=output.txt
 #include<iostream>
 #include<string>
 #include<sstream>
@@ -89,13 +89,14 @@ int main(int argc, char* argv[]) {
 
 #endif 
 
-std::string inputFilePath = "input.txt";
-std::string outputFilePath = "output.txt";
-std::string key, value;
+
 
 int main(int argc,char* argv[]){
 
-    for(int i=0; i< argc;i++){
+    std::string inputFilePath ,outputFilePath;
+    std::string key, value;
+
+    for(int i=1; i< argc;i++){
         std::string arg(argv[i]);
         std::stringstream parser(arg);
         std::getline(parser, key, '=');
@@ -104,9 +105,11 @@ int main(int argc,char* argv[]){
 
         if(key == "in"){
             inputFilePath = value;
-        } else if (key == "out") {
+        } 
+        else if (key == "out"){
             outputFilePath = value;
-        } else {
+        } 
+        else {
             std::cerr << "Error: Unsupported stream type!" << std::endl;
             return 1;
         }
@@ -114,9 +117,12 @@ int main(int argc,char* argv[]){
 
     std::ofstream outputFile(outputFilePath);
     std::ifstream inputFile(inputFilePath);
-
+    if(!inputFile.is_open())
+    {
+        std::cerr << "could not open file" << std::endl;
+        return 1;
+    }
     std::string line;
-    int i = 0;
     while(std::getline(inputFile, line))
     {
         std::stringstream ss(line);

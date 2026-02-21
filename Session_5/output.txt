@@ -1,4 +1,4 @@
-Baud Rate: 0
-Parity: 
-Stop Bits: 0
-Slave Address: 0
+50
+220
+2
+39

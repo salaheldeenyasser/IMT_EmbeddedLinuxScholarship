@@ -1,4 +1,4 @@
-// ./main.o in=input.txt  out=output.txt
+// ./main.o in=Session_5/input.txt  out=Session_5/output.txt
 #include<iostream>
 #include<string>
 #include<sstream>
@@ -105,9 +105,11 @@ int main(int argc,char* argv[]){
 
         if(key == "in"){
             inputFilePath = value;
+            std::cout<<inputFilePath<<std::endl;
         } 
         else if (key == "out"){
             outputFilePath = value;
+            std::cout<<outputFilePath<<std::endl;
         } 
         else {
             std::cerr << "Error: Unsupported stream type!" << std::endl;
@@ -115,13 +117,19 @@ int main(int argc,char* argv[]){
         }
     }
 
-    std::ofstream outputFile(outputFilePath);
     std::ifstream inputFile(inputFilePath);
     if(!inputFile.is_open())
     {
-        std::cerr << "could not open file" << std::endl;
+        std::cerr << "could not open input file" << std::endl;
         return 1;
     }
+    std::ofstream outputFile(outputFilePath);
+    if(!outputFile.is_open())
+    {
+        std::cerr << "could not open output file" << std::endl;
+        return 1;
+    }
+    
     std::string line;
     while(std::getline(inputFile, line))
     {
@@ -153,6 +161,7 @@ int main(int argc,char* argv[]){
                 return 0; 
             }
         };
-        outputFile << line << std::endl;
+        
+        outputFile << adder(first_op,op,second_op) << std::endl;
     }
 }

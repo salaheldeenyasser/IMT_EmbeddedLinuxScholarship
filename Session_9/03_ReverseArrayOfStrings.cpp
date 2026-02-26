@@ -6,29 +6,31 @@
 #include <sstream>
 #include <cmath>
 #include <algorithm>
-#include<tuple>
+#include <tuple>
 #include <numeric>
 using namespace std;
 
-int main(){
+int main()
+{
     string str;
 
     getline(cin, str);
 
-    // reverse(str.begin(), str.end());
-    // cout<< "reversed string: "<< str <<endl;
+    stringstream ss(str);
+    string word;
 
-    std::stringstream ss(str);
-    std::string word;
-    std::string result = "";
+    vector<string> v;
 
-    while (ss >> word) {
-        // Reverse the individual word
-        std::reverse(word.begin(), word.end());
-
-        // Append the reversed word to the result, with a space
-        result += word + " ";
+    while (ss >> word)
+    {
+        v.push_back(word);
     }
+    reverse(v.begin(), v.end());
+    string reversed = "";
 
-    cout<<result<<endl;
+    for_each(v.begin(), v.end(), [&reversed](string s){
+        reversed+=s;
+        if(!reversed.empty()){reversed+=' ';}});
+    cout << reversed << endl;
+    return 0;
 }

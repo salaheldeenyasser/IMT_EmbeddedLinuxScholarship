@@ -32,7 +32,7 @@ void reverseFileLines(const std::string& inputPath, const std::string& outputPat
             
             // Adjust start position: if at start of file, position is 0, 
             // otherwise it's the character right after the newline.
-            startPos = (i == 0) ? 0 : (std::streampos)(i + 1);
+            startPos = (i == 0) ? std::streampos(0) : std::streampos(i + 1);
             
             // Seek to the start of the line we just identified
             inFile.seekg(startPos);

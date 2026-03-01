@@ -30,7 +30,7 @@ class NumChecker{
     // NumChecker(int Num):m_num(num){}
 
     bool operator()(int num){
-
+        return isEven(num);
     }
 };
 

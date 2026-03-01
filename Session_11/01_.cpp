@@ -5,24 +5,6 @@ using namespace std;
 
 
 #if 1
-
-template<const int sz>
-class Sensor{
-    int m_unit;
-    double *m_readings;
-    SerialInterface* m_communication;
-public:
-    Sensor(int unit):m_unit(unit), m_readings(0){}
-
-};
-
-class TemperatureSensor : public Sensor<10>{
-    array<double, 10> m_tempReadings;
-public:  
-    TemperatureSensor(int unit):Sensor(unit), m_tempReadings(){}
-};
-
-
 class CSerial
 {
 protected:
@@ -88,6 +70,24 @@ public:
         cout<<"Initializing I2C..."<<endl;
     }
 };
+
+template<const int sz>
+class Sensor{
+    int m_unit;
+    double *m_readings;
+    CSerial* m_communication;
+public:
+    Sensor(int unit, CSerial* comm):m_unit(unit), m_readings(0), m_communication(comm){}
+
+};
+
+class CTemperatureSensor : public Sensor<10>{
+    array<double, 10> m_tempReadings;
+public:  
+    CTemperatureSensor(int unit, CSerial* comm):Sensor(unit, comm), m_tempReadings(){}
+};
+
+
 
 #endif
 

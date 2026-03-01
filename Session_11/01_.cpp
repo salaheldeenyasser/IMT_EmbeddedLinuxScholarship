@@ -71,7 +71,7 @@ public:
     }
 };
 
-template<const int sz>
+template<typename T>
 class Sensor{
     int m_unit;
     double *m_readings;
@@ -81,10 +81,16 @@ public:
 
 };
 
-class CTemperatureSensor : public Sensor<10>{
+class CTemperatureSensor : public Sensor<CTemperatureSensor>{
     array<double, 10> m_tempReadings;
 public:  
     CTemperatureSensor(int unit, CSerial* comm):Sensor(unit, comm), m_tempReadings(){}
+};
+
+class CPressureSensor : public Sensor<CPressureSensor>{
+    array<double, 10> m_pressureReadings;
+public:  
+    CPressureSensor(int unit, CSerial* comm):Sensor(unit, comm), m_pressureReadings(){}
 };
 
 

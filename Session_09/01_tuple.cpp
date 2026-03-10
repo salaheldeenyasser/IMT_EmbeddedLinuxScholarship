@@ -6,16 +6,15 @@
 #include <sstream>
 #include <cmath>
 #include <algorithm>
-#include<tuple>
+#include <tuple>
 using namespace std;
 
 enum{
     NAME,AGE,LENGTH
 };
 
-struct Phase{
-    
-
+struct Phase{ 
+    int current,voltage,power;
 };
 
 struct phaseVector{
@@ -23,19 +22,22 @@ struct phaseVector{
     Phase phase2;
     Phase phase3;
 
+    
+
     Phase operator[](int i){
         switch (i){
             case 0: return phase1;
             case 1: return phase2;
             case 2: return phase3;
-            default: throw std::out_of_range() ; 
+            default: throw std::out_of_range;
+             
         }
     }
 };
 
 phaseVector pv;
 
-pv.phase
+pv.phase1.current = 20; 
 
 int main(int argc,char * argv[]){
     tuple<string,int,float> t = {"mazen", 30,151.25};

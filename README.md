@@ -200,9 +200,24 @@ g++ -std=c++17 -g CPP/Sessions/Session_05/12_MatrixOfVector.cpp -o main.o
 ./main.o
 ```
 
+
 VS Code task configuration is available in `.vscode/tasks.json`.
 
 ## Notes
 
 - This repository contains both source files and generated artifacts (for example: `a.out`, object files, and local build output folders).
 - Some examples depend on local input files inside their session folder.
+
+
+## License
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
+
+
+## Acknowledgments
+- IMT Scholarship program for providing the learning materials and guidance.
+- Open-source community for the resources and tools used in this repository.
+
+## Contact
+For questions or feedback, please contact [Salah Eldeen Yasser](mailto:salaheldeenyasser@gmail.com)
+
+

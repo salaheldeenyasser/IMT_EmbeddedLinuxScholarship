@@ -6,7 +6,7 @@ class Consumer : public QObject{
     Q_OBJECT
 public:
     Consumer( QObject* parent = nullptr);
-    ~Consumer();
+    ~Consumer() = default;
 public slots:
     void ReceiveData(int value);
 private:

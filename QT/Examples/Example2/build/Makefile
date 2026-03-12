@@ -55,13 +55,15 @@ OBJECTS_DIR   = ./
 SOURCES       = ../main.cpp \
 		../Data.cpp \
 		../Message.cpp \
-		../MessageManager.cpp moc_Data.cpp \
+		../MessageManager.cpp \
+		../Consumer.cpp moc_Data.cpp \
 		moc_Message.cpp \
 		moc_MessageManager.cpp
 OBJECTS       = main.o \
 		Data.o \
 		Message.o \
 		MessageManager.o \
+		Consumer.o \
 		moc_Data.o \
 		moc_Message.o \
 		moc_MessageManager.o
@@ -145,7 +147,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../MessageManager.hpp ../main.cpp \
 		../Data.cpp \
 		../Message.cpp \
-		../MessageManager.cpp
+		../MessageManager.cpp \
+		../Consumer.cpp
 QMAKE_TARGET  = Example2
 DESTDIR       = 
 TARGET        = Example2
@@ -326,7 +329,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Data.hpp ../Message.hpp ../MessageManager.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../main.cpp ../Data.cpp ../Message.cpp ../MessageManager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../main.cpp ../Data.cpp ../Message.cpp ../MessageManager.cpp ../Consumer.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -392,8 +395,10 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 ####### Compile
 
 main.o: ../main.cpp ../Data.hpp \
+		../MessageManager.hpp \
 		../Message.hpp \
-		../MessageManager.hpp
+		../Consumer.hpp \
+		../Producer.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../main.cpp
 
 Data.o: ../Data.cpp ../Data.hpp
@@ -405,6 +410,10 @@ Message.o: ../Message.cpp ../Message.hpp
 MessageManager.o: ../MessageManager.cpp ../MessageManager.hpp \
 		../Message.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MessageManager.o ../MessageManager.cpp
+
+Consumer.o: ../Consumer.cpp ../Consumer.hpp \
+		../Producer.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Consumer.o ../Consumer.cpp
 
 moc_Data.o: moc_Data.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_Data.o moc_Data.cpp

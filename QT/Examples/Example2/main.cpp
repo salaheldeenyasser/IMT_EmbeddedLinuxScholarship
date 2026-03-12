@@ -4,6 +4,7 @@
 #include "Data.hpp"
 #include "MessageManager.hpp"
 #include <QThread>
+#include "Consumer.hpp"
 
 
 int main(int argc, char* argv[]){
@@ -33,13 +34,15 @@ int main(int argc, char* argv[]){
     
     // // ptr2->Display();
 
-    MessageManager manager;
-    manager.Addessage("Hello, World!");
-    manager.Addessage("Welcome to Qt programming.");
-    QThread::sleep(5);
-    manager.Addessage("This is a delayed message");
-    manager.ShowMessages();
+    // MessageManager manager;
+    // manager.Addessage("Hello, World!");
+    // manager.Addessage("Welcome to Qt programming.");
+    // QThread::sleep(5);
+    // manager.Addessage("This is a delayed message");
+    // manager.ShowMessages();
     
+    Consumer consumer;
+
 
     QTimer::singleShot(3000,[&](){
         app.quit();

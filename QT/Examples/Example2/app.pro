@@ -10,7 +10,9 @@ SOURCES += \
     main.cpp \
     Data.cpp \
     Message.cpp \
-    MessageManager.cpp
+    MessageManager.cpp \
+    Consumer.cpp
+    producer.cpp
 
 
 
@@ -18,3 +20,5 @@ HEADERS += \
     Data.hpp \
     Message.hpp \
     MessageManager.hpp
+    Consumer.hpp
+    Producer.hpp

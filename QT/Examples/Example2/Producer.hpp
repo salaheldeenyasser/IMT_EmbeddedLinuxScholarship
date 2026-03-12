@@ -1,15 +1,17 @@
 
 #include <QObject>
 #include <QDebug>
+#include <QTimer>
 
 class Producer : public QObject{
     Q_OBJECT
 public:
-    Producer(int value, QObject* parent = nullptr);
+    Producer( QObject* parent = nullptr);
     ~Producer();
     void Run();
 signals:
     void SendData(int value);
-    private:
+private:
+    QTimer* m_timer;
     int m_value;
 };

@@ -1,8 +1,8 @@
 #include "Consumer.hpp"
 
 Consumer::Consumer(QObject* parent) : QObject(parent){
-    Producer* producer = new Producer(this);
-    connect(producer, &Producer::SendData, this, &Consumer::ReceiveData);
+    m_producer = new Producer(this);
+    connect(m_producer, &Producer::SendData, this, &Consumer::ReceiveData);
 }
 
 

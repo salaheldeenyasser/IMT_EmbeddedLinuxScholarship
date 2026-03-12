@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
     Consumer consumer;
 
 
-    QTimer::singleShot(3000,[&](){
+    QTimer::singleShot(12000,[&](){
         app.quit();
     });
 

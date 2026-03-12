@@ -1,11 +1,10 @@
 #include <QCoreApplication>
 #include <QTimer>
 #include <QScopedPointer>
+#include <QThread>
 #include "Data.hpp"
 #include "MessageManager.hpp"
-#include <QThread>
 #include "Consumer.hpp"
-
 
 int main(int argc, char* argv[]){
 

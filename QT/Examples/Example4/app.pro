@@ -13,4 +13,4 @@ HEADERS += \
     downloaderThread.hpp
 
 RESOURCES += \
-    
+    qml.qrc

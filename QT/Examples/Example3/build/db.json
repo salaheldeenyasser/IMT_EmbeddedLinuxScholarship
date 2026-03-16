@@ -1,0 +1,6 @@
+[
+
+    {"id": "1", "name": "Mohammed", "age": 30, "city": "New York", "email": "mohammed@example.com"},
+    {"id": "2", "name": "Sara", "age": 25, "city": "Los Angeles", "email": "sara@example.com"},
+    {"id": "3", "name": "John", "age": 35, "city": "Chicago", "email": "john@example.com"}
+]

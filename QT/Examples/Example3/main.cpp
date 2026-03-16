@@ -5,17 +5,20 @@
 #include <QFileInfo>
 #include <QDateTime>
 #include <QTextStream>
+#include <QJsonValue>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    
+
     // QProcess process;
     // process.start("ls",QStringList() << "-l" << "/");
     // process.waitForFinished();
     // QString output = process.readAllStandardOutput();
     // qDebug() << output;
-
 
     // QProcess process;
     // process.start("cat");
@@ -38,12 +41,12 @@ int main(int argc, char *argv[])
     // });
     // process.start("ping", QStringList() << "-c" << "4" << "www.google.com");
 
-
     // QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     // env.insert("NAME", "Mohammed");
     // QProcess process;
     // process.setWorkingDirectory("~/IMT_Scholarship/QT/Examples/Example3");
     // process.setProcessEnvironment(env);
+
 
     // process.start("./myScript.sh");
     // process.waitForFinished();
@@ -54,12 +57,10 @@ int main(int argc, char *argv[])
     // QFile file("file.txt");
     // QFile file;
     // file.setFileName("file.txt");
-    
     // qDebug() << "File name: " << file.fileName();
     // qDebug() << "File exists: " << file.exists();
     // qDebug() << "File size: " << file.size();
     // QTextStream ss(&file);
-
     // int count = 1;
     // if(file.exists()){
     //     if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)){
@@ -68,7 +69,6 @@ int main(int argc, char *argv[])
     //         ss << "of a text file that has been recently edited.\n";
     //         file.flush();
     //         file.close();
-            
     //     }
     //     if(file.open(QIODevice::ReadOnly | QIODevice::Text)){
     //         // file.readAll();
@@ -80,7 +80,6 @@ int main(int argc, char *argv[])
     //         file.close();
     //     }
     // }
-
     // QFileInfo fileInfo(file);
     // qDebug() << "File absolute path: " << fileInfo.absoluteFilePath();
     // qDebug() << "Base name: " << fileInfo.baseName();
@@ -138,7 +137,86 @@ int main(int argc, char *argv[])
     // }
     // file.setPermissions(file.permissions() &(~QFileDevice::ReadOwner | QFileDevice::WriteOwner | QFileDevice::ExeOwner));
 
+    // QJsonValue v1(42);
+    // QJsonValue v2("Hello, World!");
+    // QJsonValue v3(true);
+    // QJsonValue v4;
+    // if (v1.isDouble())
+    // {
+    //     qDebug() << "v1 is a number: " << v1.toDouble();
+    // }
+    // if (v2.isString())
+    // {
+    //     qDebug() << "v2 is a string: " << v2.toString();
+    // }
+    // if (v3.isBool())
+    // {
+    //     qDebug() << "v3 is a boolean: " << v3.toBool();
+    // }
+    // if (v4.isNull())
+    // {
+    //     qDebug() << "v4 is null";
+    // }
+
+    // QJsonObject obj;
+    // obj["name"] = "Mohammed";
+    // obj["age"] = 30;
+    // obj["isStudent"] = false;
+    // for (auto key : obj.keys())
+    // {
+    //     qDebug() << "Key: " << key << ", Value: " << obj[key];
+    // }
+    // QJsonObject address;
+    // address["city"] = "New York";
+    // address["country"] = "USA";
+    // QJsonObject person;
+    // person["name"] = "Mohammed";
+    // person["age"] = 30;
+    // person["isStudent"] = false;
+    // person["address"] = address;
+    // qDebug() << "Person: " << person["name"] << ", Address: " << person["address"].toObject()["city"] << ", " << person["address"].toObject()["country"];
     
+    // QJsonObject obj1;
+    // obj1["name"] = "Mohammed";
+    // obj1["age"] = 30;
+    // QJsonObject obj2;
+    // obj2["name"] = "Sara";
+    // obj2["age"] = 25;
+    // QJsonArray arr;
+    // arr.append(obj1);
+    // arr.append(obj2);
+    // for (auto value : arr)
+    // {
+    //     qDebug() << "Name: " << value.toObject()["name"] << ", Age: " << value.toObject()["age"];
+    // }
+
+
+    QFile file("db.json");
+    QByteArray data;
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        data = file.readAll();
+        file.close();
+    }
+
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonArray arr = doc.array();
+    for (auto value : arr){
+        qDebug() << "ID: " << value.toObject()["id"] << ", Name: " << value.toObject()["name"] << ", Age: " << value.toObject()["age"] << ", City: " << value.toObject()["city"] << ", Email: " << value.toObject()["email"];
+    }
+
+    QJsonObject newObj;
+    newObj["id"] = "4";
+    newObj["name"] = "Alice";
+    newObj["age"] = 28;
+    newObj["city"] = "San Francisco";
+    newObj["email"] = "alice@example.com";
+            
+    arr.append(newObj);
+    if( file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)){
+        file.write(QJsonDocument(arr).toJson());
+        file.flush();
+        file.close();
+    }
 
     return a.exec();
 }

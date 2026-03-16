@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/home/seyho/Qt/6.9.3/gcc_64/include/",
-                "/home/seyho/Qt/6.9.3/gcc_64/include/QtCore"
+                "/home/seyho/Qt/6.9.3/gcc_64/include/QtCore",
+                "/home/seyho/Qt/6.9.3/gcc_64/include/QtQuickControls2",
+                "/home/seyho/Qt/6.9.3/gcc_64/include/QGuiApplication"
             ],
             "defines": [],
             "cStandard": "c17",

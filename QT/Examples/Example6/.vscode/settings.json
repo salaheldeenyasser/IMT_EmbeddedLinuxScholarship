@@ -1,0 +1,44 @@
+{
+    // ── C/C++ IntelliSense ────────────────────────────────────────────────
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.autocomplete": "default",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.formatting": "clangFormat",
+
+    // ── File-type associations ─────────────────────────────────────────────
+    "files.associations": {
+        "*.pro": "qmake",
+        "*.pri": "qmake",
+        "*.qrc": "xml",
+        "*.ui":  "xml",
+        // C++ header extensions used by Qt (no .h extension in Qt6 forwarding headers)
+        "QCoreApplication": "cpp",
+        "QApplication":     "cpp",
+        "QObject":          "cpp",
+        "QString":          "cpp",
+        "QTextStream":      "cpp",
+        "QDebug":           "cpp"
+    },
+
+    // ── Editor ────────────────────────────────────────────────────────────
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.rulers": [100],
+
+    // ── Build output folder — keeps workspace root clean ──────────────────
+    "cmake.buildDirectory": "${workspaceFolder}/build",
+
+    // ── Search / file-watcher exclusions (speeds up VS Code) ─────────────
+    "files.exclude": {
+        "**/build/**": false,       // keep visible, but exclude from search
+        "**/.qmake.stash": true,
+        "**/Makefile": false
+    },
+    "search.exclude": {
+        "**/build": true,
+        "**/.qmake.stash": true
+    },
+    "files.watcherExclude": {
+        "**/build/**": true
+    }
+}

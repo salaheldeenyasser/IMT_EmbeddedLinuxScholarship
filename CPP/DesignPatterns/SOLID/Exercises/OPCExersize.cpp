@@ -1,35 +1,44 @@
 #include <iostream>
 
-class NotificationMethod{
+class NotificationMethod
+{
 public:
-    virtual void notify(const std::string& message) = 0;
+    virtual void notify(const std::string &message) = 0;
     virtual ~NotificationMethod() = default;
 };
 
-class EmailNotification : public NotificationMethod{
+class EmailNotification : public NotificationMethod
+{
 public:
-    void notify(const std::string& message) override {
+    void notify(const std::string &message) override
+    {
         std::cout << "Email Notification: " << message << std::endl;
     }
 };
 
-class SMSNotification : public NotificationMethod{
+class SMSNotification : public NotificationMethod
+{
 public:
-    void notify(const std::string& message) override {
+    void notify(const std::string &message) override
+    {
         std::cout << "SMS Notification: " << message << std::endl;
     }
 };
 
-class PushNotification : public NotificationMethod{
+class PushNotification : public NotificationMethod
+{
 public:
-    void notify(const std::string& message) override {
+    void notify(const std::string &message) override
+    {
         std::cout << "Push Notification: " << message << std::endl;
     }
 };
 
-class Notifier{
+class Notifier
+{
 public:
-    void sendNotification(NotificationMethod* notificationMethod, const std::string& message) {
+    void sendNotification(NotificationMethod *notificationMethod, const std::string &message)
+    {
         notificationMethod->notify(message);
     }
 };

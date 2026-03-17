@@ -22,10 +22,34 @@ public:
     }
 };
 
-class ReportLogger : public ILogger
+class RemoteLogger : public ILogger
 {
 public:
     void log(const std::string &message) override
-    {        std::cout << "Logging report: " << message << std::endl;
+    {        std::cout << "Logging to remote server: " << message << std::endl;
     }
 };
+
+class reportGenerator
+{private:
+    ILogger *logger;
+public:
+    reportGenerator(ILogger *logger) : logger(logger) {}
+    void generateReport()
+    {        // Report generation logic
+        logger->log("Report generated successfully.");
+    }
+};
+
+int main()
+{
+    FileLogger fileLogger;
+    reportGenerator report(&fileLogger);
+    report.generateReport();
+
+    RemoteLogger remoteLogger;
+    reportGenerator report2(&remoteLogger);
+    report2.generateReport();
+
+    return 0;
+}

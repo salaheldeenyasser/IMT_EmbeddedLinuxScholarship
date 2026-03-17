@@ -5,7 +5,7 @@
 
 class FileLogger {
 public:
-    void logInfo(const std::string& message) {
+    void log(const std::string& message) {
         std::ofstream file("log.txt", std::ios::app);
         file << "INFO: " << message << std::endl;
         file.close();

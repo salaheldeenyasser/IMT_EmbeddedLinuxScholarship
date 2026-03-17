@@ -1,4 +1,15 @@
 #include <iostream>
+// Interface Segregation Principle (ISP) 
+/*
+** Definition: Clients should not be forced to depend on interfaces they do not use.
+** Problem: A multifunction printer class that implements all functionalities (print, scan, fax, staple) in a single interface, forcing clients to depend on methods they don't use.
+** Solution: Separate interfaces for each functionality, allowing clients to implement only the functionalities they need.
+*/
+// Interface Segregation Principle (ISP) Exercise
+/*
+** Problem: A multifunction printer class that implements all functionalities (print, scan, fax, staple) in a single interface, forcing clients to depend on methods they don't use.
+** Solution: Separate interfaces for each functionality, allowing clients to implement only the functionalities they need.
+*/
 
 class IPrinter
 {

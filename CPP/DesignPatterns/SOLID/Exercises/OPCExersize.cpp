@@ -3,6 +3,7 @@
 class NotificationMethod{
 public:
     virtual void notify(const std::string& message) = 0;
+    virtual ~NotificationMethod() = default;
 };
 
 class EmailNotification : public NotificationMethod{

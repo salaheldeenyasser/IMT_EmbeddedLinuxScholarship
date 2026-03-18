@@ -35,7 +35,6 @@ public:
     }
 };
 
-
 class DocumentCreator
 {
 public:
@@ -51,7 +50,7 @@ public:
         }
         else
         {
-            std::cout << "Unknown document type "  << std::endl;
+            std::cout << "Unknown document type " << std::endl;
         }
     }
 };
@@ -63,26 +62,25 @@ public:
     {
         return std::make_unique<PDFDocument>();
     }
-};  
+};
 
 class WordDocumentCreator : public DocumentCreator
 {
 public:
     std::unique_ptr<IDocument> createDocument() override
-    {        
+    {
         return std::make_unique<WordDocument>();
     }
 };
 
 class HTMLDocumentCreator : public DocumentCreator
 {
-public:    
+public:
     std::unique_ptr<IDocument> createDocument() override
-    {        
+    {
         return std::make_unique<HTMLDocument>();
     }
 };
-
 
 class MarkdownDocument : public IDocument
 {
@@ -95,13 +93,12 @@ public:
 
 class MarkdownDocumentCreator : public DocumentCreator
 {
-public:    
+public:
     std::unique_ptr<IDocument> createDocument() override
-    {        
+    {
         return std::make_unique<MarkdownDocument>();
     }
 };
-
 
 int main()
 {

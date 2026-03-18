@@ -13,7 +13,7 @@
 - Encapsulation: The Factory Method pattern encapsulates the object creation process, allowing for more flexible and maintainable code.
 - Decoupling: It decouples the client code from the specific classes that need to be instantiated, making it easier to change the implementation without affecting the client.
 - Extensibility: New product types can be added without modifying existing code, adhering to the Open/Closed Principle.
-** Example: A document editor application that supports multiple document formats (PDF, Word,
+** Example: A document editor application that supports multiple document formats (PDF, Word, HTML, Markdown). The Factory Method pattern can be used to create different types of documents based on user input or configuration, allowing for easy extension to support new document formats in the future without modifying existing code.
 */
 
 class IDocument

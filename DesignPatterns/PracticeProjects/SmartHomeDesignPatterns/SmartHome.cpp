@@ -41,7 +41,7 @@ private:
 };
 
 // Device Config (Builder pattern)
-
+// Product class
 class DeviceConfig
 {
 public:
@@ -100,4 +100,72 @@ private:
     bool schedule = false;
     std::string scheduleOn;
     std::string scheduleOff;
+};
+
+
+// Builder class
+class DeviceBuilder
+{ 
+public:
+    DeviceBuilder &setName(const std::string &name)
+    {
+        config.setName(name);
+        return *this;
+    }
+
+    DeviceBuilder &setType(const std::string &type)
+    {
+        config.setType(type);
+        return *this;
+    }
+
+    DeviceBuilder &setRoom(const std::string &room)
+    {
+        config.setRoom(room);
+        return *this;
+    }
+
+    DeviceBuilder &setPower(int power)
+    {
+        config.setPower(power);
+        return *this;
+    }
+
+    DeviceBuilder &setIP(const std::string &ip)
+    {
+        config.setIP(ip);
+        return *this;
+    }
+
+    DeviceBuilder &setOnline(bool isOnline)
+    {
+        config.setOnline(isOnline);
+        return *this;
+    }
+
+    DeviceBuilder &setSchedule(bool schedule)
+    {
+        config.setSchedule(schedule);
+        return *this;
+    }
+
+    DeviceBuilder &setScheduleOn(const std::string &scheduleOn)
+    {
+        config.setScheduleOn(scheduleOn);
+        return *this;
+    }
+
+    DeviceBuilder &setScheduleOff(const std::string &scheduleOff)
+    {
+        config.setScheduleOff(scheduleOff);
+        return *this;
+    }
+
+    DeviceConfig build()
+    {
+        return config;
+    }
+
+private:
+    DeviceConfig config;
 };

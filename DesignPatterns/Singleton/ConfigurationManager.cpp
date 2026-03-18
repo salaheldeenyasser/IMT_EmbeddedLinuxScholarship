@@ -9,6 +9,11 @@
     - Global Access: Provides a global point of access to the instance.
     - Thread Safety: Ensures that the instance is created in a thread-safe manner.
     - Lazy Initialization: The instance is created only when it is first needed.
+    Benefits:
+    - Controlled Access: The singleton pattern controls access to the sole instance, ensuring that it is not accidentally created multiple times.
+    - Lazy Initialization: The instance is created only when it is first needed, which can improve performance and resource usage.
+    - Global Access: The singleton instance can be accessed globally, making it easy to use across different parts of the application.
+    Example: A configuration manager that reads settings from a file and provides access to those settings throughout the application. This ensures that all parts of the application use the same configuration settings and that the configuration is loaded only once.
 */
 
 class ConfigurationManager

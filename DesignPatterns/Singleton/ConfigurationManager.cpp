@@ -2,6 +2,15 @@
 #include <map>
 #include <mutex>
 
+/*
+    Singleton pattern implementation for configuration management.
+    Key Concepts:
+    - Single Instance: Only one instance of ConfigurationManager can exist.
+    - Global Access: Provides a global point of access to the instance.
+    - Thread Safety: Ensures that the instance is created in a thread-safe manner.
+    - Lazy Initialization: The instance is created only when it is first needed.
+*/
+
 class ConfigurationManager
 {
 public:
@@ -31,7 +40,7 @@ private:
     }
 
     ~ConfigurationManager() = default;
-    
+
     std::map<std::string, std::string> config;
 
     std::mutex mutex;

@@ -1,7 +1,18 @@
 #include <iostream>
 
 /*
-
+** Builder Design Pattern
+** Definition: The Builder pattern separates the construction of a complex object from its representation, allowing the same construction process to create different representations.
+** Key Concepts:
+- Builder: An interface that defines the methods for creating the different parts of the product.
+- Concrete Builder: A class that implements the Builder interface to construct and assemble the parts of the product.
+- Director: A class that constructs the object using the Builder interface.
+- Product: The complex object that is being built.
+** Benefits:
+- Separation of Concerns: The Builder pattern separates the construction of a complex object from its representation, allowing for more flexible and maintainable code.
+- Reusability: The same construction process can be used to create different representations of the product, making it easier to reuse code.
+- Fluent Interface: The Builder pattern often uses a fluent interface, which allows for more readable and intuitive code when constructing complex objects.
+** Example: A computer assembly process where the builder pattern can be used to create different configurations of a computer (e.g., gaming PC, office PC) by using the same construction process but different implementations of the builder interface to specify the components of the computer.
 */
 
 class Computer

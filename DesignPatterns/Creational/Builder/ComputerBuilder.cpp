@@ -15,6 +15,8 @@
 ** Example: A computer assembly process where the builder pattern can be used to create different configurations of a computer (e.g., gaming PC, office PC) by using the same construction process but different implementations of the builder interface to specify the components of the computer.
 */
 
+
+// Product class
 class Computer
 {
 public:
@@ -57,6 +59,8 @@ private:
     bool wifi;
 };
 
+
+// Builder class
 class ComputerBuilder
 {
 public:

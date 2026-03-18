@@ -30,6 +30,8 @@ private:
         std::cout << "ConfigurationManager instance created." << std::endl;
     }
 
+    ~ConfigurationManager() = default;
+    
     std::map<std::string, std::string> config;
 
     std::mutex mutex;

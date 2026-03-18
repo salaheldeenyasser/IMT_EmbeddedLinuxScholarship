@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <mutex>
 
 class ConfigurationManager
 {
@@ -12,11 +13,13 @@ public:
 
     void set(const std::string &key, const std::string &value)
     {
+        std::lock_guard<std::mutex> lock(mutex);
         config[key] = value;
     }
 
     std::string get(const std::string &key)
     {
+        std::lock_guard<std::mutex> lock(mutex);
         return config[key];
     }
 
@@ -28,6 +31,8 @@ private:
     }
 
     std::map<std::string, std::string> config;
+
+    std::mutex mutex;
 };
 
 int main()

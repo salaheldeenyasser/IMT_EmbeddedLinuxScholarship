@@ -1,4 +1,4 @@
-# IMT Emcedded Linux Scholarship
+# IMT Embedded Linux Scholarship
 
 Repository for IMT scholarship practice work across C/C++, Linux administration, and Qt examples.
 
